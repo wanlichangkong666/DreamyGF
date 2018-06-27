@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "D:\\AndroidDemos\\DreamyGF\\dance\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_app_icon.png.flat",
+        "source": "D:\\AndroidDemos\\DreamyGF\\dance\\build\\intermediates\\bundles\\debug\\res\\drawable-xxxhdpi-v4\\app_icon.png"
+    },
+    {
+        "merged": "D:\\AndroidDemos\\DreamyGF\\dance\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_app_icon.png.flat",
+        "source": "D:\\AndroidDemos\\DreamyGF\\dance\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\app_icon.png"
+    },
+    {
+        "merged": "D:\\AndroidDemos\\DreamyGF\\dance\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldpi-v4_app_icon.png.flat",
+        "source": "D:\\AndroidDemos\\DreamyGF\\dance\\build\\intermediates\\bundles\\debug\\res\\drawable-ldpi-v4\\app_icon.png"
+    },
+    {
+        "merged": "D:\\AndroidDemos\\DreamyGF\\dance\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_app_icon.png.flat",
+        "source": "D:\\AndroidDemos\\DreamyGF\\dance\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\app_icon.png"
+    },
+    {
+        "merged": "D:\\AndroidDemos\\DreamyGF\\dance\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_app_icon.png.flat",
+        "source": "D:\\AndroidDemos\\DreamyGF\\dance\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\app_icon.png"
+    },
+    {
+        "merged": "D:\\AndroidDemos\\DreamyGF\\dance\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_app_icon.png.flat",
+        "source": "D:\\AndroidDemos\\DreamyGF\\dance\\build\\intermediates\\bundles\\debug\\res\\drawable-xxhdpi-v4\\app_icon.png"
+    },
+    {
+        "merged": "D:\\AndroidDemos\\DreamyGF\\dance\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_app_banner.png.flat",
+        "source": "D:\\AndroidDemos\\DreamyGF\\dance\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\app_banner.png"
+    }
+]

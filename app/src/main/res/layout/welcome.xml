@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@drawable/welcome"
+    android:orientation="vertical"
+    tools:context="cn.edu.nuc.dreamygf.WelcomeActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:gravity="center"
+        android:text="幻想女友"
+        android:textAlignment="gravity"
+        android:textColor="#8DEEEE"
+        android:textSize="40sp" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:stretchColumns="1"
+        >
+
+        <TableRow>
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:text="用户名:"
+                android:textSize="15sp"
+                android:textColor="#FF00FF"/>
+
+            <EditText
+                android:id="@+id/et_username"
+                android:hint="在此输入用户名"
+                android:layout_width="match_parent" />
+        </TableRow>
+
+        <TableRow
+            android:layout_marginTop="20dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="密码:"
+                android:textSize="15sp"
+                android:textColor="#FF00FF"/>
+
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:hint="在此输入密码"
+                android:inputType="textPassword"/>
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/btn_register"
+        android:background="@drawable/common_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="注册"
+        android:textSize="20sp" />
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/common_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="登录"
+        android:textSize="20sp" />
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom|right"
+    android:textColor="#A52A2A"
+    android:text="作者：王翔宇"
+    />
+</LinearLayout>
