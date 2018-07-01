@@ -86,8 +86,8 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(adapter);
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL_LIST));
 
-        setSupportActionBar(mToolBar);
-        mToolBar.setTitle(R.string.app_name);
+        //setSupportActionBar(mToolBar);
+        //mToolBar.setTitle(R.string.app_name);
 
         mAddAlarmBtn.setOnClickListener(new View.OnClickListener() {
             @Override

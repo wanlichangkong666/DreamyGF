@@ -1,10 +1,13 @@
 package cn.edu.nuc.dreamygf.gobang;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,21 +18,33 @@ import android.widget.Toast;
 import cn.edu.nuc.dreamygf.ActivityManager;
 import cn.edu.nuc.dreamygf.R;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
 
     private ChessView view;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        requestWindowFeature(Window.FEATURE_NO_TITLE);//隐藏标题
-        // 全屏显示
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);//隐藏标题
+        // 全屏显示
+        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+        //        WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        //modifyBeginning
         setContentView(R.layout.gobang);
+        toolbar = findViewById(R.id.toolbar_gobang);
+
+
+        toolbar.setTitle("幻想女友陪你下五子棋");
+        //设置toolbar
+        setSupportActionBar(toolbar);
+
+
+        //modifyEnding
         ActivityManager.getInstance().addActivity(this);
         view = (ChessView) findViewById(R.id.chessView);
     }
@@ -83,6 +98,7 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_gobang, menu);
         menu.add(Menu.NONE, Menu.FIRST, 0, "开局(黑棋)");
         menu.add(Menu.NONE, Menu.FIRST + 1, 1, "开局(白棋)");
         menu.add(Menu.NONE, Menu.FIRST + 2, 2, "悔棋");

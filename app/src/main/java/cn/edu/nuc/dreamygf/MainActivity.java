@@ -229,7 +229,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         //modifyBeginning
-        if(resultCode == 4)
+        if(requestCode == 4 && resultCode == 4)
         {
             ActivityManager.getInstance().addActivity((Activity)data.getExtras().getSerializable("dance"));
         }

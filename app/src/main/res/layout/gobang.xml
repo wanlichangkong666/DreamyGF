@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/activity_main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
-        android:background="@drawable/bg"
-        tools:context="cn.edu.nuc.dreamygf.gobang.MainActivity">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context="cn.edu.nuc.dreamygf.gobang.MainActivity">
 
-    <cn.edu.nuc.dreamygf.gobang.ChessView android:id="@+id/chessView"
+    <android.support.v7.widget.Toolbar
+        android:background="#FFBBFF"
+        android:id= "@+id/toolbar_gobang"
+        app:titleTextColor="#98F5FF"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+    </android.support.v7.widget.Toolbar>
+
+    <cn.edu.nuc.dreamygf.gobang.ChessView
+            android:id="@+id/chessView"
             android:layout_centerInParent="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>

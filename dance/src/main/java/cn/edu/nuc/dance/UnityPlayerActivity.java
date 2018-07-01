@@ -32,6 +32,9 @@ public class UnityPlayerActivity extends Activity implements Serializable
 
         getWindow().setFormat(PixelFormat.RGBX_8888); // <--- This makes xperia play happy
 
+        Intent intent = new Intent();
+        intent.putExtra("dance",UnityPlayerActivity.this);
+        this.setResult(4,intent);
         mUnityPlayer = new UnityPlayer(this);
         setContentView(mUnityPlayer);
         mUnityPlayer.requestFocus();
@@ -155,9 +158,7 @@ public class UnityPlayerActivity extends Activity implements Serializable
             //sendBroadcast(new Intent("finish"));
 //            finish();
             //Log.e("key", "key");
-            Intent intent = new Intent();
-            intent.putExtra("dance",this);
-            this.setResult(4,intent);
+
             mUnityPlayer.quit();
         }
 // TODO Auto-generated method stub

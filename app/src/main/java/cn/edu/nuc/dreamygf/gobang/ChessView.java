@@ -59,11 +59,9 @@ public class ChessView extends View {
         super(context, attrs);
         setKeepScreenOn(true);//设置屏幕常亮
         //setBackgroundColor(0x44ff0000);
-
         Resources resources = getResources();
         blackChess = BitmapFactory.decodeResource(resources, R.drawable.stone_b1);
         whiteChess = BitmapFactory.decodeResource(resources, R.drawable.stone_w2);
-
         initPaint();
         initGame();
     }
@@ -90,7 +88,7 @@ public class ChessView extends View {
     }
 
     private void initPaint() {
-        paint.setColor(Color.BLUE);
+        paint.setColor(Color.rgb(0XFF,0X00,0XFF));
         paint.setAntiAlias(true);
         paint.setDither(true);
         paint.setStyle(Paint.Style.STROKE);
@@ -98,18 +96,18 @@ public class ChessView extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        //super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
         int widthSize = MeasureSpec.getSize(widthMeasureSpec);
-        int widthModel = MeasureSpec.getMode(widthMeasureSpec);
+        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
 
         int heightSize = MeasureSpec.getSize(heightMeasureSpec);
-        int heightModel = MeasureSpec.getMode(heightMeasureSpec);
+        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
 
         int size = 0;
-        if (widthModel == MeasureSpec.UNSPECIFIED) {
+        if (widthMode == MeasureSpec.UNSPECIFIED) {
             size = heightSize;
-        } else if (heightModel == MeasureSpec.UNSPECIFIED) {
+        } else if (heightMode == MeasureSpec.UNSPECIFIED) {
             size = widthSize;
         } else {
             size = Math.min(widthSize, heightSize);
@@ -132,7 +130,6 @@ public class ChessView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
         drawChessBoard(canvas);
         drawPieces(canvas);
     }
