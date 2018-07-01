@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import cn.edu.nuc.dreamygf.ActivityManager;
 import cn.edu.nuc.dreamygf.R;
 import cn.edu.nuc.dreamygf.bean.ChatMessage;
 import cn.edu.nuc.dreamygf.utils.HttpUtils;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.chat);
+        ActivityManager.getInstance().addActivity(this);
         //初始化布局
         initView();
         //初始化数据

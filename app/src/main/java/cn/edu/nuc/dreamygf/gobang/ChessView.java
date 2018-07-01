@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.media.AudioManager;
 import android.media.SoundPool;
@@ -89,7 +90,7 @@ public class ChessView extends View {
     }
 
     private void initPaint() {
-        paint.setColor(0x88000000);
+        paint.setColor(Color.BLUE);
         paint.setAntiAlias(true);
         paint.setDither(true);
         paint.setStyle(Paint.Style.STROKE);
@@ -162,6 +163,7 @@ public class ChessView extends View {
             float y = (float) ((0.5 + i) * lineHeight);
             canvas.drawLine(startX, y, endX, y, paint);
             canvas.drawLine(y, startX, y, endX, paint);
+
         }
     }
 
@@ -196,7 +198,7 @@ public class ChessView extends View {
             checkWin(true);
             if(!isWin){
                 aiPlayer.run(humanPlayer.getMyPoints(),null);
-                invalidate();
+                invalidate();//刷屏
                 checkWin(false);
             }
         }
@@ -215,7 +217,7 @@ public class ChessView extends View {
         if(!player && aiPlayer.hasWin()){
             isWin = true;
             soundDefeat.play(1,1, 1, 0, 0, 1);
-            alert("你输了！");
+            alert("你的女朋友赢了！");
         }
         if (chessboard.getFreePoints().isEmpty()) {
             isWin = true;

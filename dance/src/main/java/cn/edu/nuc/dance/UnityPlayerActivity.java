@@ -2,23 +2,31 @@ package cn.edu.nuc.dance;
 
 import com.unity3d.player.*;
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-public class UnityPlayerActivity extends Activity
+import java.io.Serializable;
+
+public class UnityPlayerActivity extends Activity implements Serializable
 {
     protected UnityPlayer mUnityPlayer; // don't change the name of this variable; referenced from native code
 
+    //FinishUnityBroadcast receiver = null;
     // Setup activity layout
     @Override protected void onCreate (Bundle savedInstanceState)
     {
+        //receiver = registBroadcast();
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
 
@@ -27,6 +35,7 @@ public class UnityPlayerActivity extends Activity
         mUnityPlayer = new UnityPlayer(this);
         setContentView(mUnityPlayer);
         mUnityPlayer.requestFocus();
+
     }
 
     @Override protected void onNewIntent(Intent intent)
@@ -41,8 +50,9 @@ public class UnityPlayerActivity extends Activity
     // Quit Unity
     @Override protected void onDestroy ()
     {
-        mUnityPlayer.quit();
+
         super.onDestroy();
+        mUnityPlayer.quit();
     }
 
     // Pause Unity
@@ -101,7 +111,57 @@ public class UnityPlayerActivity extends Activity
 
     // Pass any events not handled by (unfocused) views straight to UnityPlayer
     @Override public boolean onKeyUp(int keyCode, KeyEvent event)     { return mUnityPlayer.injectEvent(event); }
-    @Override public boolean onKeyDown(int keyCode, KeyEvent event)   { return mUnityPlayer.injectEvent(event); }
+    //@Override public boolean onKeyDown(int keyCode, KeyEvent event)   { return mUnityPlayer.injectEvent(event); }
     @Override public boolean onTouchEvent(MotionEvent event)          { return mUnityPlayer.injectEvent(event); }
     /*API12*/ public boolean onGenericMotionEvent(MotionEvent event)  { return mUnityPlayer.injectEvent(event); }
+    private FinishUnityBroadcast registBroadcast()
+
+    {
+
+        FinishUnityBroadcast receiver = new FinishUnityBroadcast();
+
+        IntentFilter filter = new IntentFilter();
+
+        filter.addAction("finish");
+
+        registerReceiver(receiver, filter );
+        return  receiver;
+
+    }
+
+
+    class FinishUnityBroadcast extends BroadcastReceiver
+
+    {
+
+        @Override
+        public void onReceive(Context context, Intent intent)
+
+        {
+
+            mUnityPlayer.quit();
+
+        }
+
+    }
+    @Override
+
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if(keyCode == KeyEvent.KEYCODE_BACK)
+
+        {
+
+            //sendBroadcast(new Intent("finish"));
+//            finish();
+            //Log.e("key", "key");
+            Intent intent = new Intent();
+            intent.putExtra("dance",this);
+            this.setResult(4,intent);
+            mUnityPlayer.quit();
+        }
+// TODO Auto-generated method stub
+
+        return super.onKeyDown(keyCode, event);
+    }
 }

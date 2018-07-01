@@ -17,7 +17,7 @@
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/love"/>
+        android:src="@drawable/use3"/>
     <LinearLayout
         android:gravity="center_horizontal"
         android:layout_width="match_parent"
@@ -25,6 +25,7 @@
         <Button
             android:id="@+id/btn_upload"
 
+            android:background="@drawable/common_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="上传照片"
@@ -33,6 +34,7 @@
             />
         <Button
             android:id="@+id/btn_evaluate"
+            android:background="@drawable/common_btn"
             android:layout_marginLeft="35dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,11 +47,14 @@
     </LinearLayout>
     <TextView
         android:id="@+id/tv_score"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
+        android:gravity="center"
         android:hint="评测结果"
         android:textSize="30dp"
-        android:textColor="#ff34b3"
+        android:textColorHint="#B3EE3A"
+        android:textColor="#00FF7F"
+
         />
 </LinearLayout>

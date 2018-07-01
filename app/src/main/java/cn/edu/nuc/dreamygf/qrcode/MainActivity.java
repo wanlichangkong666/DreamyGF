@@ -18,15 +18,18 @@ import android.widget.TextView;
 import com.xys.libzxing.zxing.activity.CaptureActivity;
 import com.xys.libzxing.zxing.encoding.EncodingUtils;
 
+import cn.edu.nuc.dreamygf.ActivityManager;
 import cn.edu.nuc.dreamygf.R;
 
 public class MainActivity extends AppCompatActivity {
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.qrcode);
+        ActivityManager.getInstance().addActivity(this);
     }
     public void scan(View view)
     {

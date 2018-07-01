@@ -33,6 +33,7 @@ import org.json.JSONObject;
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
+import cn.edu.nuc.dreamygf.ActivityManager;
 import cn.edu.nuc.dreamygf.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.face);
+        ActivityManager.getInstance().addActivity(this);
         tv_score = (TextView) findViewById(R.id.tv_score);
         btn_upload = findViewById(R.id.btn_upload);
         btn_evaluate = findViewById(R.id.btn_evaluate);
