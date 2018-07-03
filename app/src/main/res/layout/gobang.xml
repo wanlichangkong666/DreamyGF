@@ -1,24 +1,75 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--android:id="@+id/activity_main"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:background="@drawable/welcome"-->
+    <!--tools:context="cn.edu.nuc.dreamygf.gobang.MainActivity">-->
+
+    <!--<android.support.v7.widget.Toolbar-->
+        <!--android:background="#FFBBFF"-->
+        <!--android:id= "@+id/toolbar_gobang"-->
+        <!--app:titleTextColor="#98F5FF"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="?attr/actionBarSize">-->
+    <!--</android.support.v7.widget.Toolbar>-->
+
+    <!--<cn.edu.nuc.dreamygf.gobang.ChessView-->
+            <!--android:id="@+id/chessView"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"/>-->
+
+<!--</RelativeLayout>-->
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/activity_main"
+    tools:context="cn.edu.nuc.dreamygf.gobang.MainActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
-    tools:context="cn.edu.nuc.dreamygf.gobang.MainActivity">
+    android:orientation="vertical"
+    android:background="@drawable/qingxin"
+    >
 
-    <android.support.v7.widget.Toolbar
-        android:background="#FFBBFF"
-        android:id= "@+id/toolbar_gobang"
-        app:titleTextColor="#98F5FF"
+<cn.edu.nuc.dreamygf.gobang.ChessView
+android:id="@+id/chessView"
+android:layout_marginTop="50dp"
+android:layout_width="match_parent"
+android:layout_height="400dp"/>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
-    </android.support.v7.widget.Toolbar>
+        android:layout_height="match_parent"
+        android:gravity="top|center_horizontal">
+        <Button
+            android:id="@+id/btn_black"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:textColor="#EE00EE"
+            android:text="开局（执黑）"
+            android:background="@mipmap/gold2"
+            />
+        <Button
+            android:id="@+id/btn_white"
+            android:layout_marginLeft="10dp"
+            android:text="开局（执白）"
+            android:textColor="#EE00EE"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:background="@mipmap/gold2"
+            />
+        <Button
+            android:id="@+id/btn_regret"
+            android:layout_marginLeft="10dp"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:text="悔棋"
+            android:textColor="#EE00EE"
+            android:background="@mipmap/gold2"
+            />
 
-    <cn.edu.nuc.dreamygf.gobang.ChessView
-            android:id="@+id/chessView"
-            android:layout_centerInParent="true"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-</RelativeLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

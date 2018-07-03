@@ -15,7 +15,7 @@
     <string name="repeat_type">Type of Repetitions</string>
     <string name="action_discard_alarm">Discard Alarm</string>
     <string name="action_save_alarm">Save Alarm</string>
-    <string name="no_alarm">点击 + 来让女友知道什么时候叫醒你吧</string>
+    <string name="no_alarm">点击“+”来让女朋友知道什么时候叫醒你吧</string>
     <string name="popup_menu_edit">编辑</string>
     <string name="popup_menu_delete">删除</string>
     <string name="popup_menu_more">期待更多</string>
@@ -33,5 +33,10 @@
     <string name="answer_hint">答案输在这儿...</string>
     <string name="input_complete">输入好了</string>
     <string name="alarm_complete">闹钟时间到</string>
+    <string name="shengming">"    本软件由中北大学王翔宇独立开发。\n    如果您有任何疑问或建议，欢迎与我联系。"</string>
+    <string name="email">邮箱：</string>
+    <string name="github">GitHub：</string>
+    <string name="emali_adress">" 511649091@qq.com"</string>
+    <string name="github_adress">"github.com/wanlichangkong666"</string>
 
 </resources>

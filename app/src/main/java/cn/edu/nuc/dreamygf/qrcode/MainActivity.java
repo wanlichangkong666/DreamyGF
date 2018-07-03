@@ -3,22 +3,15 @@ package cn.edu.nuc.dreamygf.qrcode;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.xys.libzxing.zxing.activity.CaptureActivity;
-import com.xys.libzxing.zxing.encoding.EncodingUtils;
 
-import cn.edu.nuc.dreamygf.ActivityManager;
+import cn.edu.nuc.dreamygf.utils.ActivityManager;
 import cn.edu.nuc.dreamygf.R;
 
 public class MainActivity extends AppCompatActivity {

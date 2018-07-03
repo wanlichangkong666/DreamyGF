@@ -2,12 +2,9 @@ package cn.edu.nuc.dreamygf.qrcode;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -16,9 +13,7 @@ import android.widget.Toast;
 
 import com.xys.libzxing.zxing.encoding.EncodingUtils;
 
-import java.io.File;
-
-import cn.edu.nuc.dreamygf.ActivityManager;
+import cn.edu.nuc.dreamygf.utils.ActivityManager;
 import cn.edu.nuc.dreamygf.R;
 
 public class MakeActivity extends AppCompatActivity {

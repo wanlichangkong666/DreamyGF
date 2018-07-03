@@ -5,25 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/qiong"
+    android:background="@mipmap/b1"
     android:gravity="center"
     tools:context="cn.edu.nuc.dreamygf.qrcode.MainActivity">
 
     <Button
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/common_btn"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:background="@mipmap/ff1"
         android:text="扫描专属女友二维码"
         android:textSize="20sp"
+        android:textColor="#FF00FF"
         android:onClick="scan"
         />
     <Button
         android:layout_marginTop="30dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/common_btn"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:background="@mipmap/ff1"
         android:text="制作专属女友二维码"
+        android:textColor="#FF00FF"
         android:textSize="20sp"
         android:onClick="make"
         />

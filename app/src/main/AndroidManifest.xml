@@ -5,11 +5,12 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-    <uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -21,67 +22,66 @@
         <activity android:name=".WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name="com.tencent.tauth.AuthActivity"
-            android:noHistory="true"
-            android:launchMode="singleTask" >
+            android:launchMode="singleTask"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data android:scheme="101486938" />
             </intent-filter>
         </activity>
         <activity
             android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="behind"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:configChanges="orientation|keyboardHidden">
-        </activity>
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".chatbot.MainActivity"></activity>
-        <activity android:name=".gobang.MainActivity"></activity>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".chatbot.MainActivity" />
+        <activity android:name=".gobang.MainActivity" />
         <activity android:name="cn.edu.nuc.dance.UnityPlayerActivity" />
         <activity android:name="cn.edu.nuc.dance.ExtendActivity" />
         <activity android:name=".qrcode.MainActivity" />
         <activity android:name=".face.MainActivity" />
-        <activity android:name=".alarm.activity.MainActivity">
-        </activity>
+        <activity android:name=".alarm.activity.MainActivity"></activity>
         <activity
             android:name=".alarm.activity.AddAlarmActivity"
-            android:label="@string/title_activity_add_alarm">
-        </activity>
+            android:label="@string/title_activity_add_alarm"></activity>
         <activity
             android:name=".alarm.activity.EditAlarmActivity"
-            android:label="@string/title_activity_edit_alarm">
-        </activity>
+            android:label="@string/title_activity_edit_alarm"></activity>
         <activity
             android:name=".alarm.activity.QuestionActivity"
-            android:label="设置问题">
-        </activity>
+            android:label="设置问题"></activity>
 
-        <receiver android:name=".alarm.receiver.MyAlarmReceiver"/>
+        <receiver android:name=".alarm.receiver.MyAlarmReceiver" />
+        <receiver android:name=".alarm.receiver.SnoozeReceiver" />
 
-        <receiver android:name=".alarm.receiver.SnoozeReceiver"/>
+        <activity
+            android:name=".alarm.activity.PlayAlarmActivity"
+            android:launchMode="singleTask" />
 
-        <activity android:name=".alarm.activity.PlayAlarmActivity"
-            android:launchMode="singleTask"/>
-
-        <service android:name=".alarm.service.AlarmService"/>
+        <service android:name=".alarm.service.AlarmService" />
 
         <receiver android:name=".alarm.service.AlarmService$RebootReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
         <!-- <activity android:name="com.dance.UnityPlayerActivity" -->
         <!-- /> -->
-        <activity android:name=".qrcode.ScanActivity"></activity>
-        <activity android:name=".qrcode.MakeActivity"></activity>
+        <activity android:name=".qrcode.ScanActivity" />
+        <activity android:name=".qrcode.MakeActivity" />
+        <activity android:name=".about.AboutActivity"></activity>
     </application>
 
 </manifest>

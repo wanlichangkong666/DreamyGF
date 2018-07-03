@@ -25,7 +25,7 @@ import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.wdullaer.materialdatetimepicker.time.RadialPickerLayout;
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 
-import cn.edu.nuc.dreamygf.ActivityManager;
+import cn.edu.nuc.dreamygf.utils.ActivityManager;
 import cn.edu.nuc.dreamygf.alarm.service.AlarmService;
 import cn.edu.nuc.dreamygf.alarm.Model.AlarmModel;
 import cn.edu.nuc.dreamygf.R;

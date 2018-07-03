@@ -24,6 +24,7 @@ import java.net.MalformedURLException;
 import java.net.SocketTimeoutException;
 
 import cn.edu.nuc.dance.UnityPlayerActivity;
+import cn.edu.nuc.dreamygf.utils.ActivityManager;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btn_code = null;
     private Button btn_share = null;
     private Button btn_quit = null;
+    private Button btn_about = null;
     private Tencent mTencent;
     private final String APP_ID = "101486938";
     private MediaPlayer musicPlayer = null;
@@ -125,6 +127,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_code = findViewById(R.id.btn_code);
         btn_share = findViewById(R.id.btn_share);
         btn_quit = findViewById(R.id.btn_quit);
+        btn_about = findViewById(R.id.btn_about);
         mTencent = Tencent.createInstance(APP_ID, this);
 //        MenuListener menuListener = new MenuListener(MainActivity.this);
 //        btn_chat.setOnClickListener(new View.OnClickListener() {
@@ -163,6 +166,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_gobang.setOnClickListener(this);
         btn_share.setOnClickListener(this);
         btn_quit.setOnClickListener(this);
+        btn_about.setOnClickListener(this);
 
        /* btn_chat.setOnClickListener(menuListener);
         btn_gobang.setOnClickListener(menuListener);*/
@@ -187,6 +191,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.btn_gobang:
+                musicPlayer.stop();
                 intent = new Intent(MainActivity.this, cn.edu.nuc.dreamygf.gobang.MainActivity.class);
                 startActivity(intent);
                 break;
@@ -222,6 +227,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 musicPlayer.stop();
                 intent = new Intent(MainActivity.this, cn.edu.nuc.dreamygf.WelcomeActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.btn_about:
+
+                intent = new Intent(MainActivity.this, cn.edu.nuc.dreamygf.about.AboutActivity.class);
+                startActivity(intent);
+                break;
         }
     }
 
@@ -237,4 +248,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else if (null != mTencent)
             mTencent.onActivityResult(requestCode, resultCode, data);
     }
+
+
+
 }

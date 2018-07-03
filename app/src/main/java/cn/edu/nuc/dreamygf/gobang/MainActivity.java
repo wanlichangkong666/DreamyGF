@@ -1,29 +1,27 @@
 package cn.edu.nuc.dreamygf.gobang;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.Button;
 
-import cn.edu.nuc.dreamygf.ActivityManager;
+import cn.edu.nuc.dreamygf.utils.ActivityManager;
 import cn.edu.nuc.dreamygf.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
 
     private ChessView view;
-    private Toolbar toolbar;
+    //private Toolbar toolbar;
 
+    private Button btn_black;
+    private Button btn_white;
+    private Button btn_regret;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,17 +34,23 @@ public class MainActivity extends AppCompatActivity {
 
         //modifyBeginning
         setContentView(R.layout.gobang);
-        toolbar = findViewById(R.id.toolbar_gobang);
+        btn_black = findViewById(R.id.btn_black);
+        btn_white = findViewById(R.id.btn_white);
+        btn_regret = findViewById(R.id.btn_regret);
+        //toolbar = findViewById(R.id.toolbar_gobang);
 
 
-        toolbar.setTitle("幻想女友陪你下五子棋");
+        //toolbar.setTitle("幻想女友陪你下五子棋");
         //设置toolbar
-        setSupportActionBar(toolbar);
+        //setSupportActionBar(toolbar);
 
 
         //modifyEnding
         ActivityManager.getInstance().addActivity(this);
         view = (ChessView) findViewById(R.id.chessView);
+        btn_black.setOnClickListener(this);
+        btn_white.setOnClickListener(this);
+        btn_regret.setOnClickListener(this);
     }
 
 
@@ -116,5 +120,28 @@ public class MainActivity extends AppCompatActivity {
                 view.back();return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this,cn.edu.nuc.dreamygf.MainActivity.class);
+        startActivity(intent);
+        //super.onBackPressed();
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId())
+        {
+            case R.id.btn_black:
+                view.startBlack();
+                break;
+            case R.id.btn_white:
+                view.startWhite();
+                break;
+            case R.id.btn_regret:
+                view.back();
+                break;
+        }
     }
 }

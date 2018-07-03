@@ -1,8 +1,6 @@
 package cn.edu.nuc.dreamygf;
 
-import android.app.Application;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,10 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.megvii.cloud.http.HttpRequest;
-
+import cn.edu.nuc.dreamygf.utils.ActivityManager;
 import cn.edu.nuc.dreamygf.utils.ConfigUtil;
 import cn.edu.nuc.dreamygf.utils.HttpUtils;
+import cn.edu.nuc.dreamygf.utils.PublicFunction;
 
 
 public class WelcomeActivity extends AppCompatActivity{
@@ -31,7 +29,7 @@ public class WelcomeActivity extends AppCompatActivity{
     private String registerUrl="http://10.130.148.60:8080/DreamyGFServer/RegisterServlet";
     //private String loginUrl="http://10.0.2.2:8080/DreamyGFServer/LoginServlet";
     //private String registerUrl="http://10.0.2.2:8080/DreamyGFServer/RegisterServlet";
-    //手机开启网络共享
+    //手机开启USB网络共享
     //private String loginUrl="http://192.168.42.107:8080/DreamyGFServer/LoginServlet";
     //private String registerUrl="http://192.168.42.107:8080/DreamyGFServer/RegisterServlet";
 
@@ -78,6 +76,8 @@ public class WelcomeActivity extends AppCompatActivity{
 
             }
         });
+        et_password.setOnFocusChangeListener(PublicFunction.onFocusAutoClearHintListener);
+        et_username.setOnFocusChangeListener(PublicFunction.onFocusAutoClearHintListener);
 
     }
 

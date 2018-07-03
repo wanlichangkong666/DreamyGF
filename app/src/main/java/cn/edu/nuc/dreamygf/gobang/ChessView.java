@@ -67,9 +67,9 @@ public class ChessView extends View {
     }
 
     //音效
-    private SoundPool soundWin;
-    private SoundPool soundDefeat;
-    private SoundPool soundChess;
+    private SoundPool sound;
+    private int soundWin,soundDefeat,soundPoint;
+
 
     private void initGame() {
         humanPlayer = new HumanPlayer();
@@ -79,17 +79,18 @@ public class ChessView extends View {
         humanPlayer.clear();
         aiPlayer.clear();
 
-        soundWin = new SoundPool(1, AudioManager.STREAM_SYSTEM,0);
-        soundDefeat = new SoundPool(1, AudioManager.STREAM_SYSTEM,0);
-        soundChess = new SoundPool(1, AudioManager.STREAM_SYSTEM,0);
-        soundWin.load(getContext(),R.raw.win,1);
-        soundDefeat.load(getContext(),R.raw.defeat,1);
-        soundChess.load(getContext(),R.raw.chess,1);
+        sound = new SoundPool(10, AudioManager.STREAM_MUSIC,0);
+
+
+        soundWin = sound.load(getContext(),R.raw.win,1);
+        soundDefeat=sound.load(getContext(),R.raw.defeat,1);
+        soundPoint=sound.load(getContext(),R.raw.chess,1);
     }
 
     private void initPaint() {
-        paint.setColor(Color.rgb(0XFF,0X00,0XFF));
+        paint.setColor(Color.rgb(0xFF,0x00,0xFF));
         paint.setAntiAlias(true);
+        paint.setStrokeWidth(5.0f);
         paint.setDither(true);
         paint.setStyle(Paint.Style.STROKE);
     }
@@ -191,7 +192,7 @@ public class ChessView extends View {
         if(chessboard.getFreePoints().contains(point)){
             humanPlayer.run(aiPlayer.getMyPoints(),point);
             invalidate();
-            soundChess.play(1,1, 1, 0, 0, 1);
+            sound.play(soundPoint,1, 1, 0, 0, 1);
             checkWin(true);
             if(!isWin){
                 aiPlayer.run(humanPlayer.getMyPoints(),null);
@@ -208,12 +209,12 @@ public class ChessView extends View {
 
         if (player && humanPlayer.hasWin()) {
             isWin = true;
-            soundWin.play(1,1, 1, 0, 0, 1);
+            sound.play(soundWin,1, 1, 0, 0, 1);
             alert("你赢了！");
         }
         if(!player && aiPlayer.hasWin()){
             isWin = true;
-            soundDefeat.play(1,1, 1, 0, 0, 1);
+            sound.play(soundDefeat,1, 1, 0, 0, 1);
             alert("你的女朋友赢了！");
         }
         if (chessboard.getFreePoints().isEmpty()) {

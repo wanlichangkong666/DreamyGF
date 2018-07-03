@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import cn.edu.nuc.dreamygf.ActivityManager;
+import cn.edu.nuc.dreamygf.utils.ActivityManager;
 import cn.edu.nuc.dreamygf.R;
 import cn.edu.nuc.dreamygf.bean.ChatMessage;
 import cn.edu.nuc.dreamygf.utils.HttpUtils;

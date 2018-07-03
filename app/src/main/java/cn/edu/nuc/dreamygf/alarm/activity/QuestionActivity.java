@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import cn.edu.nuc.dreamygf.ActivityManager;
+import cn.edu.nuc.dreamygf.utils.ActivityManager;
 import cn.edu.nuc.dreamygf.alarm.Model.AlarmModel;
 import cn.edu.nuc.dreamygf.alarm.Model.QuestionModel;
 import cn.edu.nuc.dreamygf.R;
