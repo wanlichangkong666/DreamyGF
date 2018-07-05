@@ -4,46 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/chat4"
     tools:context="cn.edu.nuc.dreamygf.chatbot.MainActivity">
 
     <RelativeLayout
         android:id="@+id/rl_ly_top"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:background="@drawable/title_bar"
+        android:background="@mipmap/hj2"
         android:layout_alignParentTop="true">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="女朋友"
+            android:text="女 朋 友"
             android:textSize="22sp"
-            android:textColor="#ffffff"
+            android:textColor="#B23AEE"
             />
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/rl_ly_bottom"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="@drawable/bottom_bar"
         android:layout_alignParentBottom="true"
         >
         <Button
             android:id="@+id/btn_send_msg"
-            android:layout_width="60dp"
+            android:layout_width="80dp"
             android:layout_height="40dp"
             android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
-            android:background="@drawable/send_btn_bg"
+            android:background="@mipmap/tuoyuan"
             android:text="发送"
+            android:textSize="20sp"
+            android:textColor="#B23AEE"
             />
 
         <EditText
             android:id="@+id/et_input_msg"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="@drawable/login_edit_normal"
-            android:layout_marginLeft="10dp"
+            android:background="@mipmap/fire2"
+            android:hint="请输入聊天信息"
+            android:gravity="center"
+            android:textColor="#B23AEE"
+            android:textColorHint="#9370DB"
+            android:layout_marginLeft="5dp"
             android:layout_marginRight="10dp"
             android:layout_toLeftOf="@id/btn_send_msg"
             android:layout_centerInParent="true"
@@ -52,6 +58,7 @@
 
     </RelativeLayout>
     <ListView
+
         android:id="@+id/lv_msg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

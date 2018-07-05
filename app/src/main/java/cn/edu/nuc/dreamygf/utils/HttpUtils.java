@@ -126,13 +126,15 @@ public class HttpUtils {
     public static String doPost(String url, String username,String password) {
         //modify
         Log.d(TAG, "doPost: "+url);
-        RequestBody requestBody = new FormBody.Builder()
-                .addEncoded("username", username)
-                .addEncoded("password", password)
-                .build();
-        //
+//        RequestBody requestBody = new FormBody.Builder()
+//                .addEncoded("username", username)
+//                .addEncoded("password", password)
+//                .build();
+        RequestBody requestBody = RequestBody.create(MediaType.parse("application/x-www-form-urlencoded;charset=utf-8"),
+                "username="+username+"&password="+password);
 
         Request request = new Request.Builder().url(url).post(requestBody).build();
+
         OkHttpClient client = new OkHttpClient.Builder().connectTimeout(10, TimeUnit.SECONDS).readTimeout(10,TimeUnit.SECONDS).build();
         try {
             //modify

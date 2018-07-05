@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import cn.edu.nuc.dreamygf.utils.ActivityManager;
 import cn.edu.nuc.dreamygf.R;
@@ -16,7 +17,7 @@ import cn.edu.nuc.dreamygf.R;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
 
-    private ChessView view;
+    private ChessBoardView view;
     //private Toolbar toolbar;
 
     private Button btn_black;
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //modifyEnding
         ActivityManager.getInstance().addActivity(this);
-        view = (ChessView) findViewById(R.id.chessView);
+        view = (ChessBoardView) findViewById(R.id.chessView);
         btn_black.setOnClickListener(this);
         btn_white.setOnClickListener(this);
         btn_regret.setOnClickListener(this);
@@ -135,12 +136,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         {
             case R.id.btn_black:
                 view.startBlack();
+                Toast.makeText(this,"成功开局（你是黑子）",Toast.LENGTH_LONG).show();
                 break;
             case R.id.btn_white:
                 view.startWhite();
+                Toast.makeText(this,"成功开局（你是白子）",Toast.LENGTH_LONG).show();
                 break;
             case R.id.btn_regret:
                 view.back();
+                Toast.makeText(this,"悔棋成功",Toast.LENGTH_LONG).show();
                 break;
         }
     }

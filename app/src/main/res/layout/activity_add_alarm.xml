@@ -4,6 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/black1"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -16,18 +17,21 @@
         app:contentInsetLeft="0dp"
         app:contentInsetStart="16dp"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        android:background="?attr/colorPrimary" />
+        android:background="#FFBBFF" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_below="@+id/toolbar"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:id="@+id/add_reminder_layout_top"
-        android:background="@color/primary"
+
+
         android:orientation="vertical"
         android:layout_height="148dp">
 
         <EditText
+            android:background="@mipmap/ww2"
+            android:layout_marginTop="4dp"
             android:layout_width="match_parent"
             android:id="@+id/alarm_title"
             android:layout_marginStart="72dp"
@@ -35,13 +39,14 @@
             android:textSize="25sp"
             android:lines="4"
             android:minLines="4"
-            android:gravity="top|left"
-            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:textColor="#FF00FF"
             android:scrollHorizontally="false"
-            android:textColorHint="@color/editText_hint"
+            android:textColorHint="#FF00FF"
             android:inputType="textCapWords|textMultiLine"
             android:layout_marginEnd="16dp"
-            android:layout_height="140dp"/>
+            android:layout_height="140dp"
+            />
 
     </LinearLayout>
 
@@ -49,25 +54,29 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_below="@id/add_reminder_layout_top"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:background="@drawable/cloud"
+        >
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_marginTop="8dp"
-                android:text="@string/details"
-                android:id="@+id/details"
-                android:textSize="18sp"
-                android:gravity="center_vertical"
-                android:layout_marginStart="72dp"
-                android:textColor="@color/primary_text_grey"
-                android:layout_height="40dp"/>
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--android:text="@string/details"-->
+                <!--android:id="@+id/details"-->
+                <!--android:textSize="18sp"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:layout_marginStart="72dp"-->
+                <!--android:textColor="#D15FEE"-->
+                <!--android:layout_height="40dp"/>-->
 
             <RelativeLayout
+                android:layout_marginTop="50dp"
                 android:layout_width="match_parent"
                 android:clickable="true"
                 android:onClick="selectTime"
@@ -94,7 +103,7 @@
 
                     <TextView
                         android:id="@+id/time_text"
-                        android:textColor="@color/primary"
+                        android:textColor="#FF00FF"
                         android:layout_width="wrap_content"
                         android:textSize="16sp"
                         android:layout_height="wrap_content"
@@ -139,7 +148,7 @@
 
                     <TextView
                         android:id="@+id/repeat_text"
-                        android:textColor="@color/primary"
+                        android:textColor="#FF00FF"
                         android:layout_width="wrap_content"
                         android:textSize="16sp"
                         android:layout_height="wrap_content"
@@ -180,11 +189,13 @@
                     android:orientation="vertical"
                     android:layout_centerVertical="true"
                     android:layout_toEndOf="@id/wake_icon"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+
+                    >
 
                     <TextView
                         android:id="@+id/wake_text"
-                        android:textColor="@color/primary"
+                        android:textColor="#FF00FF"
                         android:layout_width="wrap_content"
                         android:textSize="16sp"
                         android:layout_height="wrap_content"
@@ -229,7 +240,7 @@
 
                     <TextView
                         android:id="@+id/holdSleep_text"
-                        android:textColor="@color/primary"
+                        android:textColor="#FF00FF"
                         android:layout_width="wrap_content"
                         android:textSize="16sp"
                         android:layout_height="wrap_content"
@@ -274,8 +285,8 @@
         android:clickable="true"
         android:onClick="selectFab2"
         fab:fab_icon="@drawable/ic_notifications_on_white_24dp"
-        fab:fab_colorNormal="@color/primary"
-        fab:fab_colorPressed="@color/primary"
+        fab:fab_colorNormal="#FF00FF"
+        fab:fab_colorPressed="#FF00FF"
         app:fab_size="normal"
         android:layout_alignParentStart="true"
         android:layout_marginTop="168dp"

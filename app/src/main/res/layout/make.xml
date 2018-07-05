@@ -5,13 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/qiong"
+    android:background="@drawable/welcome"
     tools:context="cn.edu.nuc.dreamygf.qrcode.MakeActivity">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#FF83FA"
+        android:textColor="#000000"
         android:text="请输入专属女友信息:"
+        android:textSize="20sp"
         />
     <TableLayout
         android:layout_width="match_parent"
@@ -21,9 +22,11 @@
 
         <TableRow>
             <TextView
+
+                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#00E5EE"
+                android:textColor="#FF00FF"
                 android:text="名字"
                 />
             <EditText
@@ -34,9 +37,11 @@
         </TableRow>
         <TableRow>
             <TextView
+
+                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#00E5EE"
+                android:textColor="#FF00FF"
                 android:text="昵称"
                 />
             <EditText
@@ -47,9 +52,10 @@
         </TableRow>
         <TableRow>
             <TextView
+                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#00E5EE"
+                android:textColor="#FF00FF"
                 android:text="智商"
                 />
             <EditText
@@ -60,9 +66,10 @@
         </TableRow>
         <TableRow>
             <TextView
+                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#00E5EE"
+                android:textColor="#FF00FF"
                 android:text="喜欢的食物"
                 />
             <EditText
@@ -73,9 +80,10 @@
         </TableRow>
         <TableRow>
             <TextView
+                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#00E5EE"
+                android:textColor="#FF00FF"
                 android:text="喜欢的运动"
                 />
             <EditText
@@ -86,9 +94,10 @@
         </TableRow>
         <TableRow>
             <TextView
+                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#00E5EE"
+                android:textColor="#FF00FF"
                 android:text="男朋友"
                 />
             <EditText
@@ -101,18 +110,21 @@
 
     </TableLayout>
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@mipmap/bottom"
+        android:layout_gravity="center"
+        android:layout_width="250dp"
+        android:layout_height="80dp"
+        android:background="@mipmap/hj1"
         android:text="生成专属女友二维码"
+        android:textSize="15sp"
         android:onClick="generate"
         />
 
     <CheckBox
         android:id="@+id/cb_logo"
+        android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#00E5EE"
+        android:textColor="#FF00FF"
         android:text="女友的Logo"/>
     <ImageView
         android:id="@+id/iv_qrcode"

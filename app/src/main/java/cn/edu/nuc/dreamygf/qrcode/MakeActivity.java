@@ -46,19 +46,19 @@ public class MakeActivity extends AppCompatActivity {
         StringBuffer inputBuffer = new StringBuffer();
         inputBuffer.append("名字：");
         inputBuffer.append(et_name.getText().toString()) ;
-        inputBuffer.append("\n");
+        inputBuffer.append("\n\n");
         inputBuffer.append("昵称：");
         inputBuffer.append(et_nickname.getText().toString()) ;
-        inputBuffer.append("\n");
+        inputBuffer.append("\n\n");
         inputBuffer.append("智商：");
         inputBuffer.append(et_intelligence.getText().toString()) ;
-        inputBuffer.append("\n");
+        inputBuffer.append("\n\n");
         inputBuffer.append("爱好的食物：");
         inputBuffer.append(et_food.getText().toString()) ;
-        inputBuffer.append("\n");
+        inputBuffer.append("\n\n");
         inputBuffer.append("爱好的运动：");
         inputBuffer.append(et_sport.getText().toString()) ;
-        inputBuffer.append("\n");
+        inputBuffer.append("\n\n");
         inputBuffer.append("男朋友：");
         inputBuffer.append(et_bf.getText().toString()) ;
         String input = inputBuffer.toString();
@@ -88,7 +88,7 @@ public class MakeActivity extends AppCompatActivity {
         Bitmap bitmap = imageView.getDrawingCache();//获取imageview中的图像
         MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, "这是title", "这是description");
         Toast.makeText(MakeActivity.this, "保存成功", Toast.LENGTH_SHORT).show();
-        imageView.setDrawingCacheEnabled(false);//关闭catch
+        imageView.setDrawingCacheEnabled(false);//关闭cache
 
     }
 }

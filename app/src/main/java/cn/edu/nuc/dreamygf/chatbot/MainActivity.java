@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initData() {
         data = new ArrayList<ChatMessage>();
-        data.add(new ChatMessage("亲爱的，我好想你", ChatMessage.Type.INCOMING, new Date()));
+        data.add(new ChatMessage("亲爱的，想我了吗？", ChatMessage.Type.INCOMING, new Date()));
         //data.add(new ChatMessage("我是万里长空", ChatMessage.Type.OUTCOMING, new Date()));
         adapter = new ChatMessageAdapter(this, data);
         msg.setAdapter(adapter);
@@ -97,6 +97,6 @@ public class MainActivity extends AppCompatActivity {
         msg = findViewById(R.id.lv_msg);
         et_input_msg = findViewById(R.id.et_input_msg);
         btn_send_msg = findViewById(R.id.btn_send_msg);
-
     }
+
 }

@@ -468,7 +468,7 @@ public class AddAlarmActivity extends AppCompatActivity implements
             case R.id.save_Alarm:
                 mTitleText.setText(mTitle);
                 if (mTitleText.getText().toString().length() == 0)
-                    mTitleText.setError("闹钟名不能为空");
+                    Toast.makeText(this,"闹钟名不能为空",Toast.LENGTH_LONG).show();
                 else {
                     saveAlarm();
                     finish();

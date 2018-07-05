@@ -25,13 +25,13 @@ public class WelcomeActivity extends AppCompatActivity{
     private Button btn_login;
     private Button btn_quit_app;
     private ConfigUtil configUtil;
-    private String loginUrl="http://10.130.148.60:8080/DreamyGFServer/LoginServlet";
-    private String registerUrl="http://10.130.148.60:8080/DreamyGFServer/RegisterServlet";
+    //private String loginUrl="http://10.130.148.60:8080/DreamyGFServer/LoginServlet";
+    //private String registerUrl="http://10.130.148.60:8080/DreamyGFServer/RegisterServlet";
     //private String loginUrl="http://10.0.2.2:8080/DreamyGFServer/LoginServlet";
     //private String registerUrl="http://10.0.2.2:8080/DreamyGFServer/RegisterServlet";
     //手机开启USB网络共享
-    //private String loginUrl="http://192.168.42.107:8080/DreamyGFServer/LoginServlet";
-    //private String registerUrl="http://192.168.42.107:8080/DreamyGFServer/RegisterServlet";
+    private String loginUrl="http://192.168.42.169:8080/DreamyGFServer/LoginServlet";
+    private String registerUrl="http://192.168.42.169:8080/DreamyGFServer/RegisterServlet";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,9 +60,7 @@ public class WelcomeActivity extends AppCompatActivity{
 
                 //if(validate(et_username.getText().toString(),et_password.getText().toString()))
                 //实现登录
-                //login();
-                Intent intent = new Intent(WelcomeActivity.this,MainActivity.class);
-                startActivity(intent);
+                login();
 
             }
         });
@@ -98,11 +96,12 @@ public class WelcomeActivity extends AppCompatActivity{
             //保存数据
             if(result!=null&&result.equals("-1"))
             {
-                Toast.makeText(getApplicationContext(),"用户名或密码错误",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"用户名或密码错误",Toast.LENGTH_LONG).show();
             }
            else
             {
                 Log.d(TAG, "onPostExecute: "+result);
+                Toast.makeText(getApplicationContext(),"登录成功",Toast.LENGTH_LONG).show();
                 //保存在客户端
                 configUtil.setUserJson(result);
                 //跳转
@@ -130,14 +129,16 @@ public class WelcomeActivity extends AppCompatActivity{
             //保存数据
             if(result!=null&&result.equals("-1"))
             {
-                Toast.makeText(getApplicationContext(),"用户已存在",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"用户已存在",Toast.LENGTH_LONG).show();
             }
             else
             {
 
-                Toast.makeText(getApplicationContext(),"注册成功",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"注册成功",Toast.LENGTH_LONG).show();
 
             }
+            et_username.setText("");
+            et_password.setText("");
         }
     }
     public void login()
@@ -172,9 +173,9 @@ public class WelcomeActivity extends AppCompatActivity{
     }
     boolean validate(String username,String password)
     {
-        if(username.length()<6||password.length()<6)
+        if(username.length()<3||password.length()<6)
         {
-            Toast.makeText(this,"用户名和密码长度不能小于6位",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"用户名长度不能小于3位，密码长度不能小于6位",Toast.LENGTH_LONG).show();
             return false;
         }
         else

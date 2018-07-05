@@ -7,6 +7,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.KeyEvent;
 
 import cn.edu.nuc.dreamygf.alarm.Model.AlarmModel;
@@ -23,7 +24,7 @@ import cn.edu.nuc.dreamygf.alarm.fragment.QuestionFragment;
 
 public class PlayAlarmActivity extends AppCompatActivity {
     public static final String ALARM_ID = "id";
-
+    private static final String TAG = "PlayAlarmActivity";
     private Vibrator vibrator;
     private String mWake;
     private NormalFragment normalFragment;
@@ -69,9 +70,8 @@ public class PlayAlarmActivity extends AppCompatActivity {
         }else if (mRing.equals("响铃")) {
             SharedPreferences pf = getSharedPreferences("ringCode",MODE_PRIVATE);
             int ringCode  = pf.getInt("key_ring",1);
-
             startRing(ringCode);
-
+            Log.d(TAG, "onCreate: "+ringCode);
         }else {
             SharedPreferences pf = getSharedPreferences("ringCode",MODE_PRIVATE);
             int ringCode  = pf.getInt("key_ring",1);

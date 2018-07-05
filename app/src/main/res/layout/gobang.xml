@@ -33,7 +33,7 @@
     android:background="@drawable/qingxin"
     >
 
-<cn.edu.nuc.dreamygf.gobang.ChessView
+<cn.edu.nuc.dreamygf.gobang.ChessBoardView
 android:id="@+id/chessView"
 android:layout_marginTop="50dp"
 android:layout_width="match_parent"
