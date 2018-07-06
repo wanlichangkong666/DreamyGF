@@ -56,12 +56,14 @@
             />
 
         <Button
-            android:id="@+id/btn_dance"
-            style="@style/btn_menu1"
+            android:id="@+id/btn_alarm"
+            style="@style/btn_menu2"
             android:background="@mipmap/f7"
-            android:text="看你跳舞"
+            android:text="叫我起床"
             android:textColor="#FF00FF"
+
             />
+
     </LinearLayout>
 
     <LinearLayout
@@ -77,15 +79,14 @@
             android:text="颜值评测"
             android:textColor="#FF00FF"
             />
-
         <Button
-            android:id="@+id/btn_alarm"
-            style="@style/btn_menu2"
+            android:id="@+id/btn_dance"
+            style="@style/btn_menu1"
             android:background="@mipmap/f7"
-            android:text="叫我起床"
+            android:text="看你跳舞"
             android:textColor="#FF00FF"
-
             />
+
 
         <Button
             android:id="@+id/btn_code"

@@ -30,8 +30,8 @@ public class WelcomeActivity extends AppCompatActivity{
     //private String loginUrl="http://10.0.2.2:8080/DreamyGFServer/LoginServlet";
     //private String registerUrl="http://10.0.2.2:8080/DreamyGFServer/RegisterServlet";
     //手机开启USB网络共享
-    private String loginUrl="http://192.168.42.169:8080/DreamyGFServer/LoginServlet";
-    private String registerUrl="http://192.168.42.169:8080/DreamyGFServer/RegisterServlet";
+    private String loginUrl="http://192.168.42.30:8080/DreamyGFServer/LoginServlet";
+    private String registerUrl="http://192.168.42.30:8080/DreamyGFServer/RegisterServlet";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +61,8 @@ public class WelcomeActivity extends AppCompatActivity{
                 //if(validate(et_username.getText().toString(),et_password.getText().toString()))
                 //实现登录
                 login();
+                //Intent intent = new Intent(WelcomeActivity.this,MainActivity.class);
+                //startActivity(intent);
 
             }
         });
