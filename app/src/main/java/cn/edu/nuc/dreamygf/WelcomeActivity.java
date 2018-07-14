@@ -1,13 +1,19 @@
 package cn.edu.nuc.dreamygf;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Layout;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import cn.edu.nuc.dreamygf.utils.ActivityManager;
@@ -25,6 +31,8 @@ public class WelcomeActivity extends AppCompatActivity{
     private Button btn_login;
     private Button btn_quit_app;
     private ConfigUtil configUtil;
+    private LinearLayout layout_welcome;
+    private Bitmap bg;
     //private String loginUrl="http://10.130.148.60:8080/DreamyGFServer/LoginServlet";
     //private String registerUrl="http://10.130.148.60:8080/DreamyGFServer/RegisterServlet";
     //private String loginUrl="http://10.0.2.2:8080/DreamyGFServer/LoginServlet";
@@ -43,6 +51,9 @@ public class WelcomeActivity extends AppCompatActivity{
         btn_register = findViewById(R.id.btn_register);
         btn_login = findViewById(R.id.btn_login);
         btn_quit_app = findViewById(R.id.btn_quit_app);
+        layout_welcome = findViewById(R.id.layout_welcome);
+        bg = BitmapFactory.decodeResource(getResources(), R.drawable.snow4);
+        layout_welcome.setBackgroundDrawable(new BitmapDrawable(bg));
         configUtil = new ConfigUtil(this);
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,9 +71,13 @@ public class WelcomeActivity extends AppCompatActivity{
 
                 //if(validate(et_username.getText().toString(),et_password.getText().toString()))
                 //实现登录
-                login();
-                //Intent intent = new Intent(WelcomeActivity.this,MainActivity.class);
-                //startActivity(intent);
+                //login();
+                bg.recycle();
+                finish();
+                Intent intent = new Intent(WelcomeActivity.this,MainActivity.class);
+                startActivity(intent);
+
+
 
             }
         });
@@ -184,5 +199,12 @@ public class WelcomeActivity extends AppCompatActivity{
         {
             return true;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        ActivityManager.getInstance().exit();
+        android.os.Process.killProcess(android.os.Process.myPid());    //获取PID
+        System.exit(0);
     }
 }

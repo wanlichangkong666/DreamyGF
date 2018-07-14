@@ -2,11 +2,15 @@ package cn.edu.nuc.dreamygf;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.tencent.connect.share.QQShare;
 import com.tencent.open.utils.HttpUtils;
@@ -40,6 +44,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Tencent mTencent;
     private final String APP_ID = "101486938";
     private MediaPlayer musicPlayer = null;
+    private LinearLayout layout_main;
+    private Bitmap bg;
 
     private class BaseUiListener implements IUiListener {
 
@@ -128,6 +134,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_share = findViewById(R.id.btn_share);
         btn_quit = findViewById(R.id.btn_quit);
         btn_about = findViewById(R.id.btn_about);
+        layout_main = findViewById(R.id.layout_main);
+        bg = BitmapFactory.decodeResource(getResources(), R.drawable.w1new2);
+        layout_main.setBackgroundDrawable(new BitmapDrawable(bg));
         mTencent = Tencent.createInstance(APP_ID, this);
 //        MenuListener menuListener = new MenuListener(MainActivity.this);
 //        btn_chat.setOnClickListener(new View.OnClickListener() {
@@ -192,6 +201,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_gobang:
                 musicPlayer.stop();
+                bg.recycle();
                 intent = new Intent(MainActivity.this, cn.edu.nuc.dreamygf.gobang.MainActivity.class);
                 startActivity(intent);
                 break;
@@ -249,6 +259,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mTencent.onActivityResult(requestCode, resultCode, data);
     }
 
-
-
+    @Override
+    public void onBackPressed() {
+        bg.recycle();
+        musicPlayer.stop();
+        Intent intent1 = new Intent(MainActivity.this, cn.edu.nuc.dreamygf.WelcomeActivity.class);
+        startActivity(intent1);
+        super.onBackPressed();
+    }
 }

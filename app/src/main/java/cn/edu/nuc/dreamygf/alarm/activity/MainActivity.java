@@ -4,6 +4,9 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +20,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -57,12 +62,16 @@ public class MainActivity extends AppCompatActivity {
     private LinkedHashMap<Integer, Integer> IDmap = new LinkedHashMap<>();
     private AlarmService.MyBinder binder;
     private ServiceConnection connection = null;
-
+    private Bitmap bg;
+    private RelativeLayout layout_alarm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.alarm);
+        layout_alarm = findViewById(R.id.layout_alarm);
+        bg = BitmapFactory.decodeResource(getResources(), R.drawable.chat4);
+        layout_alarm.setBackgroundDrawable(new BitmapDrawable(bg));
         ActivityManager.addActivity(this);
 
         db = new MyAlarmDataBase(getApplicationContext());
@@ -516,7 +525,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        finish();
+        bg.recycle();
         super.onBackPressed();
     }
 }

@@ -1,5 +1,8 @@
 package cn.edu.nuc.dreamygf.chatbot;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -9,7 +12,9 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -36,12 +41,17 @@ public class MainActivity extends AppCompatActivity {
             adapter.notifyDataSetChanged();
         }
     };
+    private RelativeLayout layout_chatbot;
+    private Bitmap bg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.chat);
+        layout_chatbot = findViewById(R.id.layout_chatbot);
+        bg = BitmapFactory.decodeResource(getResources(), R.drawable.chat4);
+        layout_chatbot.setBackgroundDrawable(new BitmapDrawable(bg));
         ActivityManager.getInstance().addActivity(this);
         //初始化布局
         initView();
@@ -99,4 +109,9 @@ public class MainActivity extends AppCompatActivity {
         btn_send_msg = findViewById(R.id.btn_send_msg);
     }
 
+    @Override
+    public void onBackPressed() {
+        bg.recycle();
+        super.onBackPressed();
+    }
 }

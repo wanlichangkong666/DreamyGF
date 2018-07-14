@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView iv_photo;
     private String currentPhotoStr;
     private Bitmap photoImg = null;
+    private Bitmap image_result;
     private final int PICK_CODE = 0x001;
     String key = "jfqGHX7XUVb4KP6GS-YQ4IGbpN5G92KY";//api_key
     String secret = "1qr0jsHMaA7xG7WpFmmjJfdk-4mziOhm";//api_secret
@@ -48,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         btn_upload = findViewById(R.id.btn_upload);
         btn_evaluate = findViewById(R.id.btn_evaluate);
         iv_photo = findViewById(R.id.iv_photo);
+        image_result = BitmapFactory.decodeResource(getResources(),R.mipmap.gold2);
+        tv_score.setBackgroundDrawable(new BitmapDrawable(image_result));
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
         }
@@ -135,7 +139,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        image_result.recycle();
         finish();
+        super.onBackPressed();
+
     }
 }

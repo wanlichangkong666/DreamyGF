@@ -1,6 +1,9 @@
 package cn.edu.nuc.dreamygf.gobang;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -9,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import cn.edu.nuc.dreamygf.utils.ActivityManager;
@@ -23,6 +27,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btn_black;
     private Button btn_white;
     private Button btn_regret;
+    private Bitmap bg;
+    private LinearLayout layout_gobang;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +44,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_black = findViewById(R.id.btn_black);
         btn_white = findViewById(R.id.btn_white);
         btn_regret = findViewById(R.id.btn_regret);
+        layout_gobang = findViewById(R.id.layout_gobang);
+        bg = BitmapFactory.decodeResource(getResources(), R.drawable.qingxin);
+        layout_gobang.setBackgroundDrawable(new BitmapDrawable(bg));
         //toolbar = findViewById(R.id.toolbar_gobang);
 
 
@@ -125,6 +134,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onBackPressed() {
+        bg.recycle();
+        finish();
         Intent intent = new Intent(this,cn.edu.nuc.dreamygf.MainActivity.class);
         startActivity(intent);
         //super.onBackPressed();

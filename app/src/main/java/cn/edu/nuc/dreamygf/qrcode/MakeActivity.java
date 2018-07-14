@@ -1,7 +1,9 @@
 package cn.edu.nuc.dreamygf.qrcode;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -9,12 +11,13 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.xys.libzxing.zxing.encoding.EncodingUtils;
 
+import cn.edu.nuc.dreamygf.*;
 import cn.edu.nuc.dreamygf.utils.ActivityManager;
-import cn.edu.nuc.dreamygf.R;
 
 public class MakeActivity extends AppCompatActivity {
     private EditText et_name;
@@ -25,6 +28,9 @@ public class MakeActivity extends AppCompatActivity {
     private EditText et_bf;
     private ImageView iv_qrcode;
     private CheckBox cb_logo;
+    private Bitmap bg;
+    private Bitmap image_make;
+    private LinearLayout layout_make;
     private static final String TAG = "MakeActivity";
 
     @Override
@@ -39,7 +45,12 @@ public class MakeActivity extends AppCompatActivity {
         et_sport=findViewById(R.id.et_sport);
         et_bf=findViewById(R.id.et_bf);
         iv_qrcode=findViewById(R.id.iv_qrcode);
+        //image_make = BitmapFactory.decodeResource(getResources(),R.mipmap.ff2);
+        iv_qrcode.setImageBitmap(image_make);
         cb_logo=findViewById(R.id.cb_logo);
+        bg=BitmapFactory.decodeResource(getResources(),R.drawable.welcome);
+        layout_make = findViewById(R.id.layout_make);
+        layout_make.setBackgroundDrawable(new BitmapDrawable(bg));
     }
     public void generate(View view)
     {
@@ -90,5 +101,13 @@ public class MakeActivity extends AppCompatActivity {
         Toast.makeText(MakeActivity.this, "保存成功", Toast.LENGTH_SHORT).show();
         imageView.setDrawingCacheEnabled(false);//关闭cache
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        bg.recycle();
+        super.onBackPressed();
+        Intent intent = new Intent(this,cn.edu.nuc.dreamygf.qrcode.MainActivity.class);
+        startActivity(intent);
     }
 }

@@ -5,6 +5,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -18,6 +21,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -69,13 +73,17 @@ public class AddAlarmActivity extends AppCompatActivity implements
     private static final String KEY_ACTIVE = "active_key";
     private String finalDefine;
     private List<Integer> repeatCode = new ArrayList<>();
-
+    private Bitmap bg;
+    private RelativeLayout layout_add_alarm;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_alarm);
 
+        layout_add_alarm = findViewById(R.id.layout_add_alarm);
+        bg = BitmapFactory.decodeResource(getResources(), R.drawable.black1);
+        layout_add_alarm.setBackgroundDrawable(new BitmapDrawable(bg));
         ActivityManager.getInstance().addActivity(this);
         //初始化View
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -471,6 +479,7 @@ public class AddAlarmActivity extends AppCompatActivity implements
                     Toast.makeText(this,"闹钟名不能为空",Toast.LENGTH_LONG).show();
                 else {
                     saveAlarm();
+                    bg.recycle();
                     finish();
                 }
                 return true;
@@ -543,7 +552,7 @@ public class AddAlarmActivity extends AppCompatActivity implements
         db.deleteAlarm(am);
         db.deleteQuestion(am);
         Log.d("AddActivity", "用户取消创建Alarm");
-
+        bg.recycle();
         super.onBackPressed();
     }
 
